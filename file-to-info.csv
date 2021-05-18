@@ -1,0 +1,5 @@
+File_name,Plate_in_file,Sample_in_plate ,row_A,row_B,row_C,row_D,row_E,row_F,row_G,row_H,format
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,1,L149 ,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,2,L150,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,3,L224,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,4,L225,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
