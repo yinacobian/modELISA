@@ -3,7 +3,7 @@ Analysis of modified ELISA
 
 From OD450 readings to quantitative data
 
-![modELISA!](FRAP_pic.png)
+![modELISA!](imageonline-co-overlayed-image.png)
 
 1. Separate files by plate 
 
