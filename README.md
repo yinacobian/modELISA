@@ -9,6 +9,10 @@ From O.D. readings to quantitative data
 
 3. For each plate, do linear regression and output a table with values
 
+  3.1 Linear model 
+  
+
+
 4. Make heatmaps
 
 5. Statistical tests
