@@ -1,5 +1,22 @@
-File_name,Plate_in_file,Sample_in_plate ,row_A,row_B,row_C,row_D,row_E,row_F,row_G,row_H,format
-2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,1,L149 ,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
-2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,2,L150,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
-2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,3,L224,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
-2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,4,L225,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,onesample-seventantigens-3rep
+File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen,row_E_antigen,row_F_antigen,row_G_antigen,row_H_antigen,row_A_sample ,row_B_sample,row_C_sample ,row_D_sample,row_E_sample ,row_F_sample,row_G_sample ,row_H_sample,format
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,1,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L149 ,L149 ,L149 ,L149 ,L149 ,L149 ,L149 ,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,2,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L150,L150,L150,L150,L150,L150,L150,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,3,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L224,L224,L224,L224,L224,L224,L224,onesample-seventantigens-3rep
+2020-12-10_AC_IBD_4-plates_SET1-L149-L150-L224-L225.txt,4,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L225,L225,L225,L225,L225,L225,L225,onesample-seventantigens-3rep
+2021-02-11-AC-HKU1-PLATE.txt,1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,BB-POS,L80,L81,L82,BB-POS,L83,L84,L85,sixsamples-oneantigen-3rep
+2021-02-11-AC-HKU1-PLATE.txt,2,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,BB-POS,L86,L87,L88,BB-POS,L90,L91,L92,sixsamples-oneantigen-3rep
+2021-02-11-AC-HKU1-PLATE.txt,3,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,BB-POS,L93,L94,L95,BB-POS,L96,L97,L98,sixsamples-oneantigen-3rep
+2021-02-11-AC-HKU1-PLATE.txt,4,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,BB-POS,L99,L100,L101,BB-POS,L102,L103,L104,sixsamples-oneantigen-3rep
+2021-02-11-AC-HKU1-PLATE.txt,5,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,p24-standard,Coronavirus HKU1,Coronavirus HKU1,Coronavirus HKU1,BB-POS,L105,L106,L107,BB-POS,L108,L109,L110,sixsamples-oneantigen-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,1,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L165,L165,L165,BB-POS,L166,L166,L166,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,2,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L167,L167,L167,BB-POS,L168,L168,L168,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,3,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L169,L169,L169,BB-POS,L170,L170,L170,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,4,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L171,L171,L171,BB-POS,L172,L172,L172,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,5,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L173,L173,L173,BB-POS,L174,L174,L174,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,6,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L175,L175,L175,BB-POS,L176,L176,L176,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,7,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L177,L177,L177,BB-POS,L178,L178,L178,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,8,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L179,L179,L179,BB-POS,L180,L180,L180,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,9,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L181,L181,L181,BB-POS,L182,L182,L182,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,10,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L183,L183,L183,BB-POS,L184,L184,L184,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,11,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L185,L185,L185,BB-POS,L186,L186,L186,twosamples-threeantigens-3rep
+AC-02-26-2021-SET5-L165-TO-L188-pairs-plate.txt,12,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L187,L187,L187,BB-POS,L188,L188,L188,twosamples-threeantigens-3rep
