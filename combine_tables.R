@@ -77,7 +77,7 @@ kk3 <- c_data[c_data$sample!='BB-POS',] %>%
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
 
-png(height = 3, width = 8,units = 'in', res=300, file = 'heatmap.png')
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
   geom_tile() +
