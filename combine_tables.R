@@ -2,7 +2,7 @@ library(tidyverse)
 library(purrr)
 
 source("modELISA_lib.R")
-tableFile <- "file-to-info.csv"
+tableFile <- "file-to-info-v2.csv"
 if(! file.exists(tableFile)) stop('Error -- tableFile file not found.')
 file_table <- read.csv(tableFile,stringsAsFactors=FALSE)
 
@@ -77,13 +77,13 @@ kk3 <- c_data[c_data$sample!='BB-POS',] %>%
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
 
-png(height = 3, width = 8,units = 'in', res=300, file = 'chanchan.png')
+png(height = 3, width = 8,units = 'in', res=300, file = 'heatmap.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
 ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
-  xlab("Sample")
+  xlab("Sample") +
 #  labs() +
   coord_equal()
 dev.off()
