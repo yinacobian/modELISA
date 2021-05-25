@@ -54,15 +54,16 @@ kk <- apply(file_table,1, function(x){
   standar_table$control_threshold <- rep(control_threshold,8)
   return(standar_table)
 })
-c_data <-reduce(kk,rbind)
+c_data <-reduce(kk,rbind) 
+c_data <- c_data %>% mutate_all(simplify) %>% mutate_if(is.character, str_trim)
+#c_data %>% mutate_if(is.character, str_trim)
 c_data
-
 
 kk2 <- apply(c_data,1, function(x){
   logdilutions <- log10(rep(c(1/300,1/900,1/2700,1/8100),3))
-  measurments <- as.numeric(c(x["V1"],x["V2"],x["V3"],x["V4"],
-                              x["V5"],x["V6"],x["V7"],x["V8"],
-                              x["V9"],x["V10"],x["V11"],x["V12"]))
+  measurments <- as.numeric(c(x["X1"],x["X2"],x["X3"],x["X4"],
+                              x["X5"],x["X6"],x["X7"],x["X8"],
+                              x["X9"],x["X10"],x["X11"],x["X12"]))
   model <- lm(measurments ~ logdilutions)
   threshold <- as.numeric(x['control_threshold'])
   return((threshold-model$coefficients[1])/model$coefficients[2])
@@ -79,6 +80,11 @@ kk3 <- c_data[c_data$sample!='BB-POS',] %>%
   
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
+My_Theme = theme(
+  axis.title.x = element_text(size = 10),
+  axis.text.x = element_text(size = 5),
+  axis.title.y = element_text(size = 10),
+  axis.text.y = element_text(size = 5))
 
 png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
@@ -87,6 +93,7 @@ ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) +
   scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
+  My_Theme +
 #  labs() +
   coord_equal()
 dev.off()
