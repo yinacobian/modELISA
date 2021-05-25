@@ -84,7 +84,15 @@ kk3 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(heat=max(heat),dupe = n()>1) %>% 
   ungroup() %>%
   distinct(antigen, sample, .keep_all = TRUE)
-  
+
+order_ant <- c('HIV-p24','GFP','Adenovirus Type 5','Adenovirus B','TTV-16',
+           'TTMV-2','Brisavirus','Vientovirus','CMV','HSV-1','HSV-2',
+           'Norovirus','Sapovirus','Enterovirus A','Enterovirus B',
+           'Coxsackie A21','Influenza Virus A','Influenza Virus B',
+           'Parainfluenzavirus 1','Coronavirus 229E','Coronavirus HKU1',
+           'Metapneumovirus','RSV')
+kk3$antigen <- factor(kk3$antigen,levels=rev(order_ant))
+
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
 My_Theme = theme(
