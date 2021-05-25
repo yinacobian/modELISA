@@ -81,8 +81,9 @@ kk3 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(sorting=NULL,sample=paste0("L",sorting),
          heat=replace(heat,(heat<0.0001) | (heat>0.005),0)) %>% 
   group_by(antigen, sample) %>% 
-  mutate(heat=max(heat),dupe = n()>1) %>%
-  ungroup()
+  mutate(heat=max(heat),dupe = n()>1) %>% 
+  ungroup() %>%
+  distinct(antigen, sample, .keep_all = TRUE)
   
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
