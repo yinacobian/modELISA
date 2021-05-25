@@ -71,12 +71,18 @@ kk2 <- apply(c_data,1, function(x){
 kk2
 
 c_data$heat <- kk2
-kk3 <- c_data[c_data$sample!='BB-POS',] %>% 
+to_exclude <- c('Parainfluenza 4b','Parainfluenza 4a','Coronavirus OC43',
+                'Coronavirus NL63','CMV-N','CMV-C')
+to_exclude_sample <- c('L89','BB-POS')
+kk3 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to_exclude),] %>% 
   transmute(antigen=simplify(antigen),sample=simplify(sample),heat=10^as.numeric(heat)) %>%
   mutate(sorting=as.numeric(sprintf("%04d",as.numeric(str_extract(sample,'\\d+'))))) %>%
   arrange(sorting,antigen) %>%
   mutate(sorting=NULL,sample=paste0("L",sorting),
-         heat=replace(heat,(heat<0.0001) | (heat>0.005),0)) 
+         heat=replace(heat,(heat<0.0001) | (heat>0.005),0)) %>% 
+  group_by(antigen, sample) %>% 
+  mutate(heat=max(heat),dupe = n()>1) %>%
+  ungroup()
   
 
 #kk4 <- spread(kk3, antigen, heat, fill = 0, convert = TRUE)
@@ -91,26 +97,50 @@ png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
 ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
+#  scale_fill_gradient(low="red", high="blue") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   My_Theme +
-#  labs() +
+  labs(fill='Dilution \nat threshold') +
   coord_equal()
 dev.off()
 
 
 sample_info_file <- "sample-to-info.csv"
 sample_info <- read.csv(sample_info_file,stringsAsFactors=FALSE)
+sample_info <- sample_info %>% mutate_if(is.character, str_trim)
 kk4 <- kk3 %>% mutate(SAMPLE_ID=sample,sample=NULL)
 kk5 <- left_join(kk4,sample_info, by="SAMPLE_ID")
 
-png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
+BF_df <- kk5[kk5$GROUP=='BF',] %>% #mutate( sorting=as.numeric(sprintf("%04d",as.numeric(str_match(ID_NAME,"_(\\d*)_")[,2]))))
+  arrange(SUBJECT_ID,VISIT_TYPE)
+  BQ_df <- kk5[kk5$GROUP=='BQ',] %>%
+    arrange(SUBJECT_ID,VISIT_TYPE)
+    
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BF.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
-ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
+ggplot(BF_df, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
   geom_tile() +
   scale_fill_gradient(low="white", high="black") +
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
-  #  labs() +
+  labs(fill='Dilution \nat threshold',
+       title='Flare') +
+  My_Theme +
   coord_equal()
 dev.off()
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BQ.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+ggplot(BQ_df, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+    labs(fill='Dilution \nat threshold',
+         title = "Quiescent") +
+  My_Theme +
+  coord_equal()
+dev.off()
+
