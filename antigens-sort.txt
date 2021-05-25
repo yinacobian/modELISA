@@ -1,0 +1,23 @@
+HIV-p24
+GFP
+Adenovirus Type 5
+Adenoviru B
+TTV-16
+TTMV-2
+Brisavirus
+Vientovirus
+CMV
+HSV-1
+HSV-2
+Norovirus
+Sapovirus
+Enterovirus A
+Enterovirus B
+Coxsackie A21
+Influenza Virus A
+Influenza Virus B
+Parainfluenzavirus 1
+Coronavirus 229E
+Coronavirus HKU1
+Metapneumovirus
+RSV
