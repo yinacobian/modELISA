@@ -241,14 +241,14 @@ File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen
 2021-03-02_YH_IBD_7-plates_Antigen21N-18-22,5,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L159,L159,L159,BB-POS,L160,L160,L160,twosamples-3antigens-3rep
 2021-03-02_YH_IBD_7-plates_Antigen21N-18-22,6,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L161,L161,L161,BB-POS,L162,L162,L162,twosamples-3antigens-3rep
 2021-03-02_YH_IBD_7-plates_Antigen21N-18-22,7,p24-standard,CMV,HSV-1,HSV-2,p24-standard,CMV,HSV-1,HSV-2,BB-POS,L163,L163,L163,BB-POS,L164,L164,L164,twosamples-3antigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,1,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L103,L103,L103,L103,L103,L103,L103,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,2,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L104,L104,L104,L104,L104,L104,L104,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,3,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L105,L105,L105,L105,L105,L105,L105,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,4,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L106,L106,L106,L106,L106,L106,L106,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,5,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L107,L107,L107,L107,L107,L107,L107,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,6,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L108,L108,L108,L108,L108,L108,L108,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,7,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L109,L109,L109,L109,L109,L109,L109,onesample-seventantigens-3rep
-2019-11-22 LRK flaring-2 new-A1 L103-L110.txt ,8,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L110,L110,L110,L110,L110,L110,L110,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,1,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L103,L103,L103,L103,L103,L103,L103,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,2,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L104,L104,L104,L104,L104,L104,L104,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,3,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L105,L105,L105,L105,L105,L105,L105,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,4,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L106,L106,L106,L106,L106,L106,L106,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,5,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L107,L107,L107,L107,L107,L107,L107,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,6,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L108,L108,L108,L108,L108,L108,L108,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,7,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L109,L109,L109,L109,L109,L109,L109,onesample-seventantigens-3rep
+2019-11-22 LRK flaring-2 new-A1 L103-L110.txt,8,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L110,L110,L110,L110,L110,L110,L110,onesample-seventantigens-3rep
 2019-11-21 LRK flaring-2 new-A1 L95-L102.txt,1,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L95,L95,L95,L95,L95,L95,L95,onesample-seventantigens-3rep
 2019-11-21 LRK flaring-2 new-A1 L95-L102.txt,2,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L96,L96,L96,L96,L96,L96,L96,onesample-seventantigens-3rep
 2019-11-21 LRK flaring-2 new-A1 L95-L102.txt,3,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L97,L97,L97,L97,L97,L97,L97,onesample-seventantigens-3rep
@@ -264,7 +264,6 @@ File_name,Plate_in_file,row_A_antigen,row_B_antigen ,row_C_antigen,row_D_antigen
 2019-11-20 LRK flaring-2 new-A1 L88-L94.txt,5,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L92,L92,L92,L92,L92,L92,L92,onesample-seventantigens-3rep
 2019-11-20 LRK flaring-2 new-A1 L88-L94.txt,6,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L93,L93,L93,L93,L93,L93,L93,onesample-seventantigens-3rep
 2019-11-20 LRK flaring-2 new-A1 L88-L94.txt,7,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L94,L94,L94,L94,L94,L94,L94,onesample-seventantigens-3rep
-2019-11-20 LRK flaring-2 new-A1 L88-L94.txt,8,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L95,L95,L95,L95,L95,L95,L95,onesample-seventantigens-3rep
 2019-11-19 LRK flaring-2 new-A1 L80-L87.txt,1,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L80,L80,L80,L80,L80,L80,L80,onesample-seventantigens-3rep
 2019-11-19 LRK flaring-2 new-A1 L80-L87.txt,2,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L81,L81,L81,L81,L81,L81,L81,onesample-seventantigens-3rep
 2019-11-19 LRK flaring-2 new-A1 L80-L87.txt,3,p24-standard,HIV-p24,TTV-16,TTMV-2,Norovirus,Sapovirus,Enterovirus A,Enterovirus B ,BB-POS,L82,L82,L82,L82,L82,L82,L82,onesample-seventantigens-3rep

@@ -36,13 +36,16 @@ kk <- apply(file_table,1, function(x){
   plate <- as.numeric(x["Plate_in_file"])
   filename <- x["File_name"] 
   tablepath <- paste0("table_parts/",sprintf("%02d",plate),"_",tools::file_path_sans_ext(filename),".tab")
-  raw_table <- read.table(tablepath)
+  if(! file.exists(tablepath)) stop(paste0('Error -- tableFile ' , tablepath , ' file not found.'))
+  print(tablepath)
+  raw_table <- read.table(tablepath,header = TRUE)
   sample_cols <- c(x["row_A_sample"],x["row_B_sample"],x["row_C_sample"],
                     x["row_D_sample"],x["row_E_sample"],x["row_F_sample"],
                     x["row_G_sample"],x["row_H_sample"])  
   antigen_cols <- c(x["row_A_antigen"],x["row_B_antigen"],x["row_C_antigen"],
                    x["row_D_antigen"],x["row_E_antigen"],x["row_F_antigen"],
                    x["row_G_antigen"],x["row_H_antigen"])
+#  browser(skipCalls=100)
   standar_row <- min(which(antigen_cols=="p24-standard"))
   standar_table <- reblank_table(raw_table,standar_row)
   control_threshold <- get_control_threshold(standar_table,standar_row)
@@ -89,5 +92,18 @@ ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) +
 dev.off()
 
 
+sample_info_file <- "sample-to-info.csv"
+sample_info <- read.csv(sample_info_file,stringsAsFactors=FALSE)
+kk4 <- kk3 %>% mutate(SAMPLE_ID=sample,sample=NULL)
+kk5 <- left_join(kk4,sample_info, by="SAMPLE_ID")
 
-
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+ggplot(kk3, aes(forcats::fct_inorder(sample),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  #  labs() +
+  coord_equal()
+dev.off()
