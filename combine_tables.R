@@ -144,3 +144,5 @@ ggplot(BQ_df, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) +
   coord_equal()
 dev.off()
 
+write_csv(kk5,"all_dilutions_at_threshold.csv")
+
