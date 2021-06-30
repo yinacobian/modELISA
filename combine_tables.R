@@ -167,4 +167,4 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(SAMPLE_ID=sample,sample=NULL) %>%
   mutate(heat=as.character(round(1/heat,digits=2)))
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
-write_csv(kk7,"all_dilutions_at_threshold_raw.csv")
+write_csv(kk7,"all_dilutions_at_threshold_dilution.csv")
