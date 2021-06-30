@@ -78,7 +78,7 @@ kk3 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   transmute(antigen=simplify(antigen),sample=simplify(sample),heat=10^as.numeric(heat)) %>%
   mutate(sorting=as.numeric(sprintf("%04d",as.numeric(str_extract(sample,'\\d+'))))) %>%
   arrange(sorting,antigen) %>%
-  mutate(sorting=NULL,sample=paste0("L",sorting),
+  mutate(sample=paste0("L",sorting),sorting=NULL,
          heat=replace(heat,(heat<0.0001) | (heat>0.005),0)) %>% 
   group_by(antigen, sample) %>% 
   mutate(heat=max(heat),dupe = n()>1) %>% 
@@ -155,3 +155,16 @@ dev.off()
 
 write_csv(kk5,"all_dilutions_at_threshold.csv")
 
+kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to_exclude),] %>% 
+  transmute(antigen=simplify(antigen),sample=simplify(sample),heat=10^as.numeric(heat)) %>%
+  mutate(sorting=as.numeric(sprintf("%04d",as.numeric(str_extract(sample,'\\d+'))))) %>%
+  arrange(sorting,antigen) %>%
+  mutate(sample=paste0("L",sorting),sorting=NULL)  %>% 
+  group_by(antigen, sample) %>% 
+  mutate(heat=max(heat),dupe = n()>1) %>% 
+  ungroup() %>%
+  distinct(antigen, sample, .keep_all = TRUE) %>% 
+  mutate(SAMPLE_ID=sample,sample=NULL) %>%
+  mutate(heat=as.character(round(1/heat,digits=2)))
+kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
+write_csv(kk7,"all_dilutions_at_threshold_raw.csv")
