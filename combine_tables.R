@@ -167,7 +167,7 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(SAMPLE_ID=sample,sample=NULL) %>%
   mutate(heat=as.character(round(1/heat,digits=2)))
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
-write_csv(kk7,"all_dilutions_at_threshold_dilution_new.csv")
+write_csv(kk7,"all_dilutions_at_threshold_dilution_v3.csv")
 
 
 BF_df_bis <- kk7[kk7$GROUP=='BF',] %>% #mutate( sorting=as.numeric(sprintf("%04d",as.numeric(str_match(ID_NAME,"_(\\d*)_")[,2]))))
