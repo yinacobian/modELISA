@@ -196,7 +196,7 @@ ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) +
 dev.off()
 
 kk7
-kk_old <-read_csv("all_dilutions_at_threshold_dilution.csv")
+kk_old <-read_csv("all_dilutions_at_threshold_dilution_old.csv")
 old_heat <- kk_old %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
 new_arrange <- kk7 %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
 new_arrange$old_heat <- old_heat$heat 
