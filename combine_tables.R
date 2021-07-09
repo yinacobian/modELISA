@@ -2,7 +2,7 @@ library(tidyverse)
 library(purrr)
 
 source("modELISA_lib.R")
-tableFile <- "file-to-info-v3-standards.csv"
+tableFile <- "file-to-info-v4-standards.csv"
 if(! file.exists(tableFile)) stop('Error -- tableFile file not found.')
 file_table <- read.csv(tableFile,stringsAsFactors=FALSE)
 
@@ -167,7 +167,7 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(SAMPLE_ID=sample,sample=NULL) %>%
   mutate(heat=as.character(round(1/heat,digits=2)))
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
-write_csv(kk7,"all_dilutions_at_threshold_dilution_v3.csv")
+write_csv(kk7,"all_dilutions_at_threshold_dilution_v4.csv")
 
 
 BF_df_bis <- kk7[kk7$GROUP=='BF',] %>% #mutate( sorting=as.numeric(sprintf("%04d",as.numeric(str_match(ID_NAME,"_(\\d*)_")[,2]))))
@@ -195,9 +195,9 @@ ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) +
   coord_equal()
 dev.off()
 
-kk7
-kk_old <-read_csv("all_dilutions_at_threshold_dilution_old.csv")
-old_heat <- kk_old %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
-new_arrange <- kk7 %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
-new_arrange$old_heat <- old_heat$heat 
-hiv_change <- new_arrange %>% transmute(ID=ID_NAME,change=as.numeric(heat)-old_heat,new=as.numeric(heat),old=old_heat)
+#kk7
+#kk_old <-read_csv("all_dilutions_at_threshold_dilution_old.csv")
+#old_heat <- kk_old %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
+#new_arrange <- kk7 %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
+#new_arrange$old_heat <- old_heat$heat 
+#hiv_change <- new_arrange %>% transmute(ID=ID_NAME,change=as.numeric(heat)-old_heat,new=as.numeric(heat),old=old_heat)
