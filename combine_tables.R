@@ -168,3 +168,16 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(heat=as.character(round(1/heat,digits=2)))
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
 write_csv(kk7,"all_dilutions_at_threshold_dilution.csv")
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap2_BQ.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+ggplot(BQ_df, aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  labs(fill='Dilution \nat threshold',
+       title = "Quiescent") +
+  My_Theme +
+  coord_equal()
+dev.off()
