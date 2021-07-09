@@ -168,3 +168,30 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
   mutate(heat=as.character(round(1/heat,digits=2)))
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
 write_csv(kk7,"all_dilutions_at_threshold_dilution.csv")
+
+
+BF_df_bis <- kk7[kk7$GROUP=='BF',] %>% #mutate( sorting=as.numeric(sprintf("%04d",as.numeric(str_match(ID_NAME,"_(\\d*)_")[,2]))))
+  arrange(SUBJECT_ID,VISIT_TYPE)
+BQ_df_bis <- kk7[kk7$GROUP=='BQ',] %>%
+  arrange(SUBJECT_ID,VISIT_TYPE)
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BF_bis.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+BF_df_bis %>%
+  mutate(heat=as.numeric(heat)) %>%
+  mutate(heat=ifelse(heat<200,200,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
+                      labels=c('<200','1000','2000','3000','4000','>5000')) +
+#  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  labs(fill='Dilution \nat threshold',
+       title = "Flare") +
+  My_Theme +
+  coord_equal()
+dev.off()
+
