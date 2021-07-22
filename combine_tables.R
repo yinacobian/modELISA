@@ -195,9 +195,30 @@ ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) +
   coord_equal()
 dev.off()
 
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BQ_bis.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+BQ_df_bis %>%
+  mutate(heat=as.numeric(heat)) %>%
+  mutate(heat=ifelse(heat<200,200,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+  ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
+                      labels=c('<200','1000','2000','3000','4000','>5000')) +
+  #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  labs(fill='Dilution \nat threshold',
+       title = "Quiescent") +
+  My_Theme +
+  coord_equal()
+dev.off()
+
 #kk7
 #kk_old <-read_csv("all_dilutions_at_threshold_dilution_old.csv")
 #old_heat <- kk_old %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
 #new_arrange <- kk7 %>% filter(str_detect(antigen, "HIV")) %>% arrange(ID_NAME)
 #new_arrange$old_heat <- old_heat$heat 
 #hiv_change <- new_arrange %>% transmute(ID=ID_NAME,change=as.numeric(heat)-old_heat,new=as.numeric(heat),old=old_heat)
+
