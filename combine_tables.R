@@ -170,11 +170,33 @@ kk6 <- c_data[!(c_data$sample %in% to_exclude_sample) & !(c_data$antigen %in% to
 kk7 <- left_join(kk6,sample_info, by="SAMPLE_ID")
 write_csv(kk7,"all_dilutions_at_threshold_dilution_v5.csv")
 
+antigen_order <- c("HIV-p24",
+                   "GFP",
+                   "Adenovirus Type 5",
+                   "Adenovirus B",
+                   "TTV-16",
+                   "TTMV-2",
+                   "Brisavirus",
+                   "Vientovirus",
+                   "CMV",
+                   "HSV-1",
+                   "HSV-2",
+                   "Norovirus",
+                   "Sapovirus",
+                   "Enterovirus A",
+                   "Enterovirus B",
+                   "Coxsackie A21",
+                   "Influenza Virus A",
+                   "Influenza Virus B",
+                   "Parainfluenzavirus 1",
+                   "Coronavirus 229E",
+                   "Coronavirus HKU1",
+                   "Metapneumovirus",
+                   "RSV")
 
-BF_df_bis <- kk7[kk7$GROUP=='BF',] %>% #mutate( sorting=as.numeric(sprintf("%04d",as.numeric(str_match(ID_NAME,"_(\\d*)_")[,2]))))
-  arrange(SUBJECT_ID,VISIT_TYPE)
-BQ_df_bis <- kk7[kk7$GROUP=='BQ',] %>%
-  arrange(SUBJECT_ID,VISIT_TYPE)
+
+BQ_df_bis <- kk7 %>% filter(GROUP=='BQ') %>%arrange(SUBJECT_ID,VISIT_TYPE) %>% mutate(antigen=factor(antigen,rev(antigen_order)))
+BF_df_bis <- kk7 %>% filter(GROUP=='BF') %>%arrange(SUBJECT_ID,VISIT_TYPE) %>% mutate(antigen=factor(antigen,rev(antigen_order)))
 
 png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BF_bis.png')
 #forcats::fct_rev(forcats::fct_inorder(sample)
@@ -208,6 +230,46 @@ BQ_df_bis %>%
   scale_fill_gradientn(colors=c('white','black','#003366','#003366'),breaks=c(200,1000,2000,3000,4000,5000,5500),
                        labels=c('<200','1000','2000','3000','4000','5000','>5000'),
                        values = rescale(c(200,5000,5001,5500),to=c(0,1))) +
+  #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  labs(fill='Dilution \nat threshold',
+       title = "Quiescent") +
+  My_Theme +
+  coord_equal()
+dev.off()
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BF_bis_n.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+BF_df_bis %>%
+  mutate(heat=as.numeric(heat)) %>%
+  mutate(heat=ifelse(heat<200,200,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+  ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
+                      labels=c('<200','1000','2000','3000','4000','>5000')) +
+  #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  xlab("Sample") +
+  labs(fill='Dilution \nat threshold',
+       title = "Quiescent") +
+  My_Theme +
+  coord_equal()
+dev.off()
+
+png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BQ_bis_n.png')
+#forcats::fct_rev(forcats::fct_inorder(sample)
+BQ_df_bis %>%
+  mutate(heat=as.numeric(heat)) %>%
+  mutate(heat=ifelse(heat<200,200,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+  ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
+  geom_tile() +
+  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
+                      labels=c('<200','1000','2000','3000','4000','>5000')) +
   #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 90)) +

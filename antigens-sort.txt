@@ -1,7 +1,7 @@
 HIV-p24
 GFP
 Adenovirus Type 5
-Adenoviru B
+Adenovirus B
 TTV-16
 TTMV-2
 Brisavirus
