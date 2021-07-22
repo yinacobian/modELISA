@@ -255,7 +255,7 @@ BF_df_bis %>%
   theme(axis.text.x = element_text(angle = 90)) +
   xlab("Sample") +
   labs(fill='Dilution \nat threshold',
-       title = "Quiescent") +
+       title = "Flare") +
   My_Theme +
   coord_equal()
 dev.off()
