@@ -1,3 +1,4 @@
+library(scales)
 library(tidyverse)
 library(purrr)
 
@@ -180,11 +181,12 @@ png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BF_bis.png')
 BF_df_bis %>%
   mutate(heat=as.numeric(heat)) %>%
   mutate(heat=ifelse(heat<200,200,heat)) %>%
-  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5500,heat)) %>%
 ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
   geom_tile() +
-  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
-                      labels=c('<200','1000','2000','3000','4000','>5000')) +
+  scale_fill_gradientn(colors=c('white','black','#003366','#003366'),breaks=c(200,1000,2000,3000,4000,5000,5500),
+                       labels=c('<200','1000','2000','3000','4000','5000','>5000'),
+                       values = rescale(c(200,5000,5001,5500),to=c(0,1))) +
 #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 90)) +
@@ -200,11 +202,12 @@ png(height = 4.5, width = 10,units = 'in', res=300, file = 'heatmap_BQ_bis.png')
 BQ_df_bis %>%
   mutate(heat=as.numeric(heat)) %>%
   mutate(heat=ifelse(heat<200,200,heat)) %>%
-  mutate(heat=ifelse(heat>5000,5000,heat)) %>%
+  mutate(heat=ifelse(heat>5000,5500,heat)) %>%
   ggplot(aes(forcats::fct_inorder(ID_NAME),antigen, fill= heat)) + 
   geom_tile() +
-  scale_fill_gradient(low="white", high="black",limits=c(200,5000),breaks=c(200,1000,2000,3000,4000,5000),
-                      labels=c('<200','1000','2000','3000','4000','>5000')) +
+  scale_fill_gradientn(colors=c('white','black','#003366','#003366'),breaks=c(200,1000,2000,3000,4000,5000,5500),
+                       labels=c('<200','1000','2000','3000','4000','5000','>5000'),
+                       values = rescale(c(200,5000,5001,5500),to=c(0,1))) +
   #  geom_text(aes(label=round(heat,digits = 2)),size=0.5, color='red') +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 90)) +
