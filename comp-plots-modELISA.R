@@ -6,13 +6,13 @@ library(ggpubr)
 
 
 setwd("C:/Users/Yina/Documents/Sync/Bushman Lab/IBD Lyndsey/IBD-serum-antigens/modELISAmerge/modELISA/")
-DT <- read.csv("all_dilutions_at_threshold_dilution_v4.csv")
+DT <- read.csv("all_dilutions_at_threshold_dilution_v5.csv")
 DT <- DT %>% filter(antigen=="HIV-p24")
-
+DT <- DT %>% filter (heat>10)
 #Plot all Baseline-Flare group
 
 #pdf("BF-linear-all.pdf")
-DT <- read.csv("all_dilutions_at_threshold_dilution_v4.csv")
+DT <- read.csv("all_dilutions_at_threshold_dilution_v5.csv")
 DT <- DT %>% filter(GROUP=="BF")
 #DT <- DT %>% filter(antigen=="Norovirus")
 ggpaired(DT, x = "VISIT_TYPE", y = "heat",
@@ -26,7 +26,7 @@ ggpaired(DT, x = "VISIT_TYPE", y = "heat",
 
 #Plot all Baseline-Quiescent group
 
-DT <- read.csv("all_dilutions_at_threshold_dilution_v4.csv")
+DT <- read.csv("all_dilutions_at_threshold_dilution_v5.csv")
 DT <- DT %>% filter(GROUP=="BQ")
 ggpaired(DT, x = "VISIT_TYPE", y = "heat",
          color="VISIT_TYPE",line.color = "gray", line.size = 0.8, facet.by = "antigen", id="SUBJECT_ID",
@@ -42,7 +42,7 @@ ggpaired(DT, x = "VISIT_TYPE", y = "heat",
 
 
 ##Norovirus looks insteresting
-DT <- read.csv("all_dilutions_at_threshold_dilution_v4.csv")
+DT <- read.csv("all_dilutions_at_threshold_dilution_v5.csv")
 DT <- DT %>% filter(antigen=="Norovirus")
 ggpaired(DT, x = "VISIT_TYPE", y = "heat",
          color="VISIT_TYPE",line.color = "gray", line.size = 0.8, facet.by = "GROUP", id="SUBJECT_ID",
@@ -52,7 +52,7 @@ ggpaired(DT, x = "VISIT_TYPE", y = "heat",
   stat_compare_means(paired = TRUE) 
 
 ##CMV looks insteresting
-DT <- read.csv("all_dilutions_at_threshold_dilution_v4.csv")
+DT <- read.csv("all_dilutions_at_threshold_dilution_v5.csv")
 DT <- DT %>% filter(antigen=="CMV")
 ggpaired(DT, x = "VISIT_TYPE", y = "heat",
          color="VISIT_TYPE",line.color = "gray", line.size = 0.8, facet.by = "GROUP", id="SUBJECT_ID",
