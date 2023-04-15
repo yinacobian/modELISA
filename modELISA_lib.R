@@ -21,18 +21,15 @@ reblank_table <- function(table,control_row) {
 }
 
 get_control_threshold <- function(table,control_row,standar_file="neg-pos-concentrations.txt") {
-  if (standar_file=='neg-pos-concentrations-2.txt') {
-    control_reads <- as.numeric(table[control_row,5:12])
-    control_concentration <- c(80,27,9,3,80,27,9,3)
-  } else if (standar_file=='neg-pos-concentrations-3.txt') {
+  if (standar_file=='neg-pos-concentrations-3.txt') {
     control_reads <- as.numeric(table[control_row,5:12])
     control_concentration <- c(27,9,3,1,27,9,3,1)
   } else if (standar_file=='neg-pos-concentrations-4.txt'){
     control_reads <- as.numeric(table[control_row,5:12])
-    control_concentration <- c(27,9,3,1,27,9,3,1)
+    control_concentration <- c(2187,729,243,81,2187,729,243,81)
   } else {
     control_reads <- as.numeric(table[control_row,5:12])
-    control_concentration <- c(720,240,80,27,720,240,80,27)
+    control_concentration <- c(243,81,27,9,243,81,27,9)
   }
   linearMod <- lm(control_reads ~ control_concentration )
   return(predict(linearMod,data.frame(control_concentration = 10)))
