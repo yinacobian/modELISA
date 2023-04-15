@@ -27,9 +27,12 @@ get_control_threshold <- function(table,control_row,standar_file="neg-pos-concen
   } else if (standar_file=='neg-pos-concentrations-3.txt') {
     control_reads <- as.numeric(table[control_row,5:12])
     control_concentration <- c(27,9,3,1,27,9,3,1)
+  } else if (standar_file=='neg-pos-concentrations-4.txt'){
+    control_reads <- as.numeric(table[control_row,5:12])
+    control_concentration <- c(27,9,3,1,27,9,3,1)
   } else {
     control_reads <- as.numeric(table[control_row,5:12])
-    control_concentration <- c(240,80,27,9,240,80,27,9)
+    control_concentration <- c(720,240,80,27,720,240,80,27)
   }
   linearMod <- lm(control_reads ~ control_concentration )
   return(predict(linearMod,data.frame(control_concentration = 10)))
