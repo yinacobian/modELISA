@@ -24,9 +24,6 @@ get_control_threshold <- function(table,control_row,standar_file="neg-pos-concen
   if (standar_file=='neg-pos-concentrations-3.txt') {
     control_reads <- as.numeric(table[control_row,5:12])
     control_concentration <- c(27,9,3,1,27,9,3,1)
-  } else if (standar_file=='neg-pos-concentrations-4.txt'){
-    control_reads <- as.numeric(table[control_row,5:12])
-    control_concentration <- c(2187,729,243,81,2187,729,243,81)
   } else {
     control_reads <- as.numeric(table[control_row,5:12])
     control_concentration <- c(243,81,27,9,243,81,27,9)
